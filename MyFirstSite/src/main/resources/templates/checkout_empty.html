@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кошик - Ethereal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/72a2c8e4d9.js" crossorigin="anonymous"></script>
+    <link rel="icon"
+          href="https://cdn.discordapp.com/attachments/1059215485012549703/1108147072131145798/ethereal-website-favicon-color.png"
+          type="image/png">
+    <style>
+        .header {
+            overflow: hidden;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 3px #A455ED;
+            min-height: 120px;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #8E1ED9;
+        }
+
+        .header a:hover {
+            color: #B262FB;
+        }
+
+        .container {
+            display: grid;
+            grid-auto-rows: 1fr;
+            grid-template-columns: auto 1fr auto;
+            justify-content: center;
+            align-items: center;
+            grid-template-areas: "logo nav action";
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .logo {
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+            grid-area: logo;
+            justify-content: start;
+        }
+
+        .links {
+            text-align: right;
+            margin-right: auto;
+            grid-area: nav;
+            justify-self: start;
+            padding: 14px 16px;
+            font-size: 17px;
+        }
+
+        .icons {
+            grid-area: action;
+            justify-self: end;
+            flex-direction: row;
+            display: flex;
+        }
+
+        /* search button */
+        .container-input {
+            position: relative;
+        }
+
+        .input {
+            width: 150px;
+            padding: 10px 0 10px 40px;
+            border-radius: 30px;
+            border: solid 1px #8E1ED9;
+            outline: none;
+            font: inherit;
+        }
+
+        .container-input i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+        }
+
+        .input:focus {
+            opacity: 1;
+            width: 250px;
+        }
+
+        /* search button end*/
+
+        .button {
+            background-color: #8E1ED9;
+            color: #fff;
+            font: inherit;
+            border-radius: 30px;
+            padding: 16px 24px;
+            border-color: transparent;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #9C51E0;
+        }
+
+        .footer {
+            box-shadow: 0 0 0 3px #A455ED;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: #FFFFFF;
+        }
+
+        .footer_container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .footer_container_right {
+            flex-flow: wrap;
+            padding: 10px;
+            display: flex;
+        }
+
+        .footer_container_right i {
+            color: #8E1ED9;
+            padding: 0 5px;
+        }
+
+        .footer_container_right i:hover {
+            color: #9C51E0;
+        }
+
+        .empty-cart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            padding: 30px 0;
+            min-height: 562px;
+        }
+
+        .bars {
+            display: none;
+        }
+
+        @media screen and (max-width: 910px) {
+            .links a {
+                display: none;
+            }
+
+            .icons p, .icons div:not(:first-child) {
+                display: none;
+            }
+
+            .bars {
+                display: block;
+            }
+
+            .show {
+                display: block !important;
+            }
+        }
+
+        .mobileMenu {
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 200;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+        .mobileMenu a {
+            text-decoration: none;
+            font-size: 25px;
+            color: #8E1ED9;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .mobileMenu a:hover {
+            color: #B262FB;
+        }
+
+        .mobileMenu .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 25px;
+            margin-left: 50px;
+            padding: 20px 8px 8px 32px;
+        }
+
+        body, html {
+            height: 100%;
+            line-height: 1.8;
+            background-color: #372D42;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class=" container" id="Navbar" style="padding:0 20px;">
+        <div class="logo">
+            <a href="/main" class="container_item" style="margin-right:15px">
+                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1094391626585096312/logo-no-background.png"
+                     class="logo-image" alt="Ethereal" width="212" height="35"> </a>
+        </div>
+        <div class="  links" style="text-decoration: none">
+            <a href="/main" class=" container_item" style="padding:10px 15px">Головна</a>
+            <a href="/shop" class=" container_item" style="padding:10px 15px"> Каталог</a>
+            <a href="/contacts" class=" container_item" style="padding:10px 15px"> Контакти</a>
+        </div>
+        <div class="icons" style="display: flex; flex-direction: row; align-items: center;">
+            <p style="color: #8E1ED9;">+380xxxxxxxxx</p>
+            <div class="container-input" style="margin: 10px;">
+                <input type="text" placeholder="Пошук" name="text" class="input">
+                <i class="fa-solid fa-magnifying-glass" style="color: #9C51E0;"></i>
+            </div>
+            <a onclick="openMenu()" class="bars">
+                <i class="fa-solid fa-bars fa-lg" style="color: #8E1ED9; padding: 10px;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="mobile" class="mobileMenu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()"> <i class="fa-solid fa-xmark"></i> </a>
+    <a href="/main" class=" container_item" style="padding:10px 15px">Головна</a>
+    <a href="/shop" class=" container_item" style="padding:10px 15px"> Каталог</a>
+    <a href="/contacts" class="container_item" style="padding:10px 15px"> Контакти</a>
+    <p style="color: #8E1ED9; padding: 0 10px; font-size: 20px;">+380xxxxxxxxx</p>
+    <div class="show container-input" style="margin: 10px;">
+        <input type="text" placeholder="Пошук" name="text" class="input">
+        <i class="fa-solid fa-magnifying-glass" style="color: #9C51E0;"></i>
+    </div>
+</div>
+
+<div class="checkout" style="padding: 80px 20px; color: #fff; font-size: 20px;">
+    <div class="empty-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32" id="cart">
+            <g transform="translate(-348 -244)">
+                <path style="-inkscape-stroke:none" fill-rule="evenodd"
+                      d="M357 268.00586c-1.64501 0-3 1.35499-3 3 0 1.64501 1.35499 3 3 3 1.64501 0 3-1.35499 3-3 0-1.64501-1.35499-3-3-3zm0 2c.56413 0 1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1zM371 268.00586c-1.64501 0-3 1.35499-3 3 0 1.64501 1.35499 3 3 3 1.64501 0 3-1.35499 3-3 0-1.64501-1.35499-3-3-3zm0 2c.56413 0 1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1zM372 246.00586c-3.30186 0-6 2.69814-6 6 0 3.30186 2.69814 6 6 6 3.30186 0 6-2.69814 6-6 0-3.30186-2.69814-6-6-6zm0 2c2.22098 0 4 1.77902 4 4 0 2.22098-1.77902 4-4 4-2.22098 0-4-1.77902-4-4 0-2.22098 1.77902-4 4-4z"
+                      color="#000" fill="#fff"></path>
+                <path style="-inkscape-stroke:none" fill-rule="evenodd"
+                      d="m 370.58594,249.5918 a 1,1 0 0 0 -0.70703,0.29297 1,1 0 0 0 0,1.41406 l 0.70703,0.70703 -0.70703,0.70703 a 1,1 0 0 0 0,1.41406 1,1 0 0 0 1.41406,0 L 372,253.41992 l 0.70703,0.70703 a 1,1 0 0 0 1.41406,0 1,1 0 0 0 0,-1.41406 l -0.70703,-0.70703 0.70703,-0.70703 a 1,1 0 0 0 0,-1.41406 1,1 0 0 0 -0.70703,-0.29297 1,1 0 0 0 -0.70703,0.29297 L 372,250.5918 l -0.70703,-0.70703 a 1,1 0 0 0 -0.70703,-0.29297 z"
+                      color="#000" fill="#fff"></path>
+                <path style="-inkscape-stroke:none" fill-rule="evenodd"
+                      d="m 351.01758,246.00586 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 1.17969 l 2.65039,13.24219 c -1.07078,0.46018 -1.83008,1.52737 -1.83008,2.75781 0,1.6447 1.3553,3 3,3 h 17 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 h -17 c -0.5713,0 -1,-0.4287 -1,-1 0,-0.5713 0.4287,-1 1,-1 h 15 a 1,1 0 0 0 0.0293,-0.006 h 2.9707 a 1.0001,1.0001 0 0 0 0.98828,-0.84375 l 0.93945,-5.96875 a 1,1 0 0 0 -0.83203,-1.14453 1,1 0 0 0 -1.14453,0.83398 L 373.16211,261 h -16.32422 l -1.80078,-8.99414 h 12.08399 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 h -12.48438 l -0.63867,-3.19531 a 1.0001,1.0001 0 0 0 -0.98047,-0.80469 z"
+                      color="#000" fill="#fff"></path>
+            </g>
+        </svg>
+        <p style="margin: 5px 0px;">Ваш кошик порожній.</p>
+        <div class="button" style="margin-top: 40px;">
+            <a href="/shop" style="text-decoration: none; color: #FFFFFF;">Продовжити покупки</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div style="width: 100%; max-width: 1100px; ">
+        <div class="footer_container">
+            <div class="footer_container_left" style="padding: 0 10px; color: #8E1ED9;">
+                <p>ethereal@gmail.com</p>
+            </div>
+            <div class="footer_container_right" style="font-size:24px;">
+                <a href="https://t.me/Antoniada"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.instagram.com/kimiko__aoki/"><i class="fa fa-instagram"></i></a>
+                <a href="https://discord.gg/XfvANdWq"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; max-width: 1100px; padding: 10px 20px; font-size: 14px; color: #bababa;">
+        <p>© 2023 Ethereal | Робимо нереальне реальним. Всі права захищені.</p>
+    </div>
+</footer>
+
+<script>
+    function openMenu() {
+        document.getElementById("mobile").style.display = "block";
+    }
+
+    function closeMenu() {
+        document.getElementById("mobile").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

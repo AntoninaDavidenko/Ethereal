@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D бант у 4 кольорах - Ethereal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/72a2c8e4d9.js" crossorigin="anonymous"></script>
+    <link rel="icon"
+          href="https://cdn.discordapp.com/attachments/1059215485012549703/1108147072131145798/ethereal-website-favicon-color.png"
+          type="image/png">
+    <style>
+        .header {
+            overflow: hidden;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 3px #A455ED;
+            min-height: 120px;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #8E1ED9;
+        }
+
+        .header a:hover {
+            color: #B262FB;
+        }
+
+        .container {
+            display: grid;
+            grid-auto-rows: 1fr;
+            grid-template-columns: auto 1fr auto;
+            justify-content: center;
+            align-items: center;
+            grid-template-areas: "logo nav action";
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .logo {
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+            grid-area: logo;
+            justify-content: start;
+        }
+
+        .links {
+            text-align: right;
+            margin-right: auto;
+            grid-area: nav;
+            justify-self: start;
+            padding: 14px 16px;
+            font-size: 17px;
+        }
+
+        .icons {
+            grid-area: action;
+            justify-self: end;
+            flex-direction: row;
+            display: flex;
+        }
+
+        .button {
+            background-color: #8E1ED9;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 30px;
+            padding: 16px 24px;
+            border-color: transparent;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #9C51E0;
+        }
+
+        .footer {
+            box-shadow: 0 0 0 3px #A455ED;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: #FFFFFF;
+        }
+
+        .footer_container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .footer_container_right {
+            flex-flow: wrap;
+            padding: 10px;
+            display: flex;
+        }
+
+        .footer_container_right i {
+            color: #8E1ED9;
+            padding: 0 5px;
+        }
+
+        .footer_container_right i:hover {
+            color: #9C51E0;
+        }
+
+        .container-input {
+            position: relative;
+        }
+
+        .input {
+            width: 150px;
+            padding: 10px 0 10px 40px;
+            border-radius: 30px;
+            border: solid 1px #8E1ED9;
+            outline: none;
+            font: inherit;
+        }
+
+        .container-input i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+        }
+
+        .input:focus {
+            opacity: 1;
+            width: 250px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .product-container {
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1100px;
+            width: 100%;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        @media screen and (max-width: 750px) {
+            .product-container {
+                display: block;
+            }
+
+            .product-container img {
+                width: 100% !important;
+            }
+        }
+
+        .bars {
+            display: none;
+        }
+
+        @media screen and (max-width: 910px) {
+            .links a {
+                display: none;
+            }
+
+            .icons p, .icons div:not(:first-child) {
+                display: none;
+            }
+
+            .bars {
+                display: block;
+            }
+
+            .show {
+                display: block !important;
+            }
+        }
+
+        .mobileMenu {
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 200;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+        .mobileMenu a {
+            text-decoration: none;
+            font-size: 25px;
+            color: #8E1ED9;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .mobileMenu a:hover {
+            color: #B262FB;
+        }
+
+        .mobileMenu .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 25px;
+            margin-left: 50px;
+            padding: 20px 8px 8px 32px;
+        }
+
+        body, html {
+            height: 100%;
+            line-height: 1.8;
+            background-color: #372D42;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class=" container" id="Navbar" style="padding:0 20px;">
+        <div class="logo">
+            <a href="/main" class="container_item" style="margin-right:15px">
+                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1094391626585096312/logo-no-background.png"
+                     class="logo-image" alt="Ethereal" width="212" height="35"> </a>
+        </div>
+        <div class="  links" style="text-decoration: none">
+            <a href="/main" class=" container_item" style="padding:10px 15px">Головна</a>
+            <a href="/shop" class=" container_item" style="padding:10px 15px"> Каталог</a>
+            <a href="/contacts" class=" container_item" style="padding:10px 15px"> Контакти</a>
+        </div>
+        <div class="icons" style="display: flex; flex-direction: row; align-items: center;">
+            <p style="color: #8E1ED9;">+380xxxxxxxxx</p>
+            <div class="container-input" style="margin: 10px;">
+                <input type="text" placeholder="Пошук" name="text" class="input">
+                <i class="fa-solid fa-magnifying-glass" style="color: #9C51E0;"></i>
+            </div>
+            <a href="/checkout" style="width: 32px; height: 30px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" id="trolley1">
+                    <path style="-inkscape-stroke:none" fill-rule="evenodd" d="M399 198.00586c-.55228 0-1 .44772-1 1 0 .55228.44772 1 1 1h1.18945l3.83203
+                     18.20703c.0979.46231.50597.79302.97852.79297h18.29883c.55228 0 1-.44772 1-1 0-.55228-.44772-1-1-1h-17.48828l-.42188-2h16.91016c.45916.00018.85946-.31232.9707-.75781l2.73047-11c.15748-.63123-.32012-1.24241-.9707-1.24219H418v-3c-.00006-.55226-.44774-.99994-1-1h-4c-.55226.00006-.99994.44774-1
+                     1v3h-.16016l-.87304-3.25781c-.11206-.41878-.48115-.71768-.91407-.74024-.10463-.005-.20941.006-.31054.0332l-3.86328 1.03515c-.53334.14303-.84983.69122-.70703 1.22461l.45703
+                     1.70508h-2.97657l-.67382-3.20508C401.88145 198.3377 401.47315 198.006 401 198.00586zm15 2h2v2h-2zm-4.70703.22656l.47461 1.77344h-2.07031L407.36133 200.75zm-6.21875 3.77344H423.75l-2.23242
+                     9-16.5332.004c-.61823-2.86515-1.2814-6.02491-1.91016-9.00391zM409 220.00586c-1.64501 0-3 1.35499-3 3 0 1.64501 1.35499 3 3 3 1.64501 0 3-1.35499 3-3 0-1.64501-1.35499-3-3-3zm0 2c.56413 0
+                     1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1zM419 220.00586c-1.64501 0-3 1.35499-3 3 0 1.64501 1.35499 3 3 3 1.64501 0 3-1.35499 3-3
+                     0-1.64501-1.35499-3-3-3zm0 2c.56413 0 1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1z"
+                          color="#000" fill="#9C51E0" transform="translate(-396 -196)"></path>
+                </svg>
+            </a>
+            <a onclick="openMenu()" class="bars">
+                <i class="fa-solid fa-bars fa-lg" style="color: #8E1ED9; padding: 10px;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="mobile" class="mobileMenu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()"> <i class="fa-solid fa-xmark"></i> </a>
+    <a href="/main" class=" container_item" style="padding:10px 15px">Головна</a>
+    <a href="/shop" class=" container_item" style="padding:10px 15px">Каталог</a>
+    <a href="/contacts" class=" container_item" style="padding:10px 15px">Контакти</a>
+    <p style="color: #8E1ED9; padding: 0 10px; font-size: 20px;">+380xxxxxxxxx</p>
+    <div class="show container-input" style="margin: 10px;">
+        <input type="text" placeholder="Пошук" name="text" class="input">
+        <i class="fa-solid fa-magnifying-glass" style="color: #9C51E0;"></i>
+    </div>
+</div>
+
+<div class="box">
+    <div class="product-container">
+        <div class="left" style="padding: 10px; flex-basis: 66.6%;">
+            <div>
+                <img src="https://booth.pximg.net/fda1763e-ec8b-4454-9f28-02dbb6a45451/i/4253104/53cf1f47-c38c-460a-a6bf-5a6661ab5199_base_resized.jpg"
+                     alt="image" style="width: 600px; border-radius: 5px;"></div>
+            <h2 style="font-weight: 600;">3D бант у 4 кольорах!</h2>
+            <p>3D модель, призначена для використання у Unity 2019.4.29f1</p>
+            <p>Чудовий бантик для використання у будь-яких цілях. Приклад застосування:</p>
+            <div>
+                <img src="https://booth.pximg.net/fda1763e-ec8b-4454-9f28-02dbb6a45451/i/4253104/2daecd30-c108-45c7-a420-1dd72515491e_base_resized.jpg"
+                     alt="image" style="width: 600px; border-radius: 5px;">
+            </div>
+            <hr style="opacity:0">
+            <p>Включає в себе:</p>
+            <ul>
+                <li>Дані моделі у форматі FBX</li>
+                <li>Дані моделі у форматі UnityPackage</li>
+                <li>Набір текстур</li>
+            </ul>
+            <hr style="opacity:0">
+            <p>Умови використання:</p>
+            <p>Після придбання моделі Ви можете викорстовавути її у будь-яких проектах.</p>
+            <p>Ви можете змінювати модель за потреби. </p>
+        </div>
+        <div class="right" style="text-align: center; padding: 10px;  flex-basis: 33.3%;">
+            <p style="margin-bottom: 20px; font-weight: 700; font-size: 24px;"> $3 </p>
+            <div class="button">
+                <a href="" style="text-decoration: none; color: #FFFFFF;">У кошик</a>
+            </div>
+            <hr style="opacity:0.6; margin: 20px 0;">
+            <p>1 file</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div style="width: 100%; max-width: 1100px; ">
+        <div class="footer_container">
+            <div class="footer_container_left" style="padding: 0 10px; color: #8E1ED9;">
+                <p>ethereal@gmail.com</p>
+            </div>
+            <div class="footer_container_right" style="font-size:24px;">
+                <a href="https://t.me/Antoniada"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.instagram.com/kimiko__aoki/"><i class="fa fa-instagram"></i></a>
+                <a href="https://discord.gg/XfvANdWq"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; max-width: 1100px; padding: 10px 20px; font-size: 14px; color: #bababa;">
+        <p>© 2023 Ethereal | Робимо нереальне реальним. Всі права захищені.</p>
+    </div>
+</footer>
+
+<script>
+    function openMenu() {
+        document.getElementById("mobile").style.display = "block";
+    }
+
+    function closeMenu() {
+        document.getElementById("mobile").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
