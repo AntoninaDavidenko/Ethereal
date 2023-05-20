@@ -3,46 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Ethereal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/72a2c8e4d9.js" crossorigin="anonymous"></script>
+    <link rel="icon"
+          href="https://cdn.discordapp.com/attachments/1059215485012549703/1108147072131145798/ethereal-website-favicon-color.png"
+          type="image/png">
     <style>
-        .topnav {
+        .header {
             overflow: hidden;
             background-color: #FFFFFF;
             box-shadow: 0 0 0 3px #A455ED;
-
-
             min-height: 120px;
             box-sizing: border-box;
-
             justify-content: center;
             align-items: center;
             display: flex;
             position: relative;
             z-index: 100;
-
-
         }
 
-
-        .topnav a {
+        .header a {
             text-decoration: none;
             color: #8E1ED9;
-
         }
 
-        .topnav a:hover {
+        .header a:hover {
             color: #B262FB;
         }
 
-        .topnav a.active {
+        .header a.active {
             font-weight: bold;
         }
 
         .container {
-
-
             display: grid;
             grid-auto-rows: 1fr;
             grid-template-columns: auto 1fr auto;
@@ -52,7 +48,6 @@
             max-width: 1100px;
             width: 100%;
 
-
         }
 
         .logo {
@@ -61,7 +56,6 @@
             display: flex;
             grid-area: logo;
             justify-content: start;
-
         }
 
         .links {
@@ -69,8 +63,6 @@
             margin-right: auto;
             grid-area: nav;
             justify-self: start;
-
-
             padding: 14px 16px;
             font-size: 17px;
         }
@@ -82,9 +74,38 @@
             display: flex;
         }
 
+        /* search button */
+        .container-input {
+            position: relative;
+        }
+
+        .input {
+            width: 150px;
+            padding: 10px 0 10px 40px;
+            border-radius: 30px;
+            border: solid 1px #8E1ED9;
+            outline: none;
+            font: inherit;
+        }
+
+        .container-input i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+        }
+
+        .input:focus {
+            opacity: 1;
+            width: 250px;
+        }
+
+        /* search button end*/
+
         .button {
             background-color: #8E1ED9;
-            color: #FFFFFF;
+            color: #fff;
+            font: inherit;
             font-size: 24px;
             border-radius: 30px;
             padding: 16px 24px;
@@ -92,21 +113,93 @@
             text-decoration: none;
         }
 
-
         .button:hover {
             background-color: #9C51E0;
         }
 
-        .bgimg-1 {
-            min-height: 480px;
+        .contact {
+            padding: 128px 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
 
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .email-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .footer {
+            box-shadow: 0 0 0 3px #A455ED;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: #FFFFFF;
+        }
+
+        .footer_container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .footer_container_right {
+            flex-flow: wrap;
+            padding: 10px;
+            display: flex;
+        }
+
+        .footer_container_right i {
+            color: #8E1ED9;
+            padding: 0 5px;
+        }
+
+        .footer_container_right i:hover {
+            color: #9C51E0;
+        }
+
+        .bgimg-1 {
+            min-height: 690px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about {
+            padding: 115px 40px 128px 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
         }
 
         .about-container {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .features-container {
+            display: flex;
             flex-direction: row;
             justify-content: center;
-
+            margin-top: 64px;
             gap: 20px;
 
         }
@@ -133,104 +226,143 @@
             align-items: center;
             justify-items: center;
             margin-top: 64px;
-            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .input-zone {
             padding: 16px;
-            margin: 10px 42px; /* расстояние между кнопками */
+            margin: 10px 21px;
             border-radius: 30px;
-            min-width: 250px; /* для изменения окна */
+            min-width: 250px;
             max-width: 600px;
             width: 50%;
             border-style: solid;
             border-color: #8E1ED9;
             outline: none;
+            font: inherit;
         }
 
         .input-zone:focus {
             border-color: #8E1ED9;
         }
 
-        .footer {
-            box-shadow: 0 0 0 3px #A455ED;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            display: flex;
+        @media screen and (max-width: 750px) {
+            .product-container {
+                display: block;
+            }
+
+            .product-container img {
+                width: 100% !important;
+            }
+
+            .features-container {
+                flex-wrap: wrap;
+                gap: 0;
+                margin-top: 34px;
+            }
+
+            .about-column {
+                margin-top: 34px;
+            }
+
+            .header-container h1 {
+                font-size: 30px !important;
+            }
+
+            .header-container p {
+                font-size: 20px !important;
+            }
 
         }
 
-        .footer_container {
+        .bars {
+            display: none;
+        }
+
+        @media screen and (max-width: 910px) {
+            .links a {
+                display: none;
+            }
+
+            .icons p, .icons div:not(:first-child) {
+                display: none;
+            }
+
+            .bars {
+                display: block;
+            }
+
+            .show {
+                display: block !important;
+            }
+        }
+
+        .mobileMenu {
+            display: none;
+            height: 100%;
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding:20px;
+            position: fixed;
+            z-index: 200;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-top: 60px;
         }
 
-
-        .footer_container_right {
-            flex-flow: wrap;
-            padding: 10px;
-            display: flex;
+        .mobileMenu a {
+            text-decoration: none;
+            font-size: 25px;
+            color: #8E1ED9;
+            display: block;
+            transition: 0.3s;
         }
 
-        /* search button */
-        .container-input {
-            position: relative;
+        .mobileMenu a:hover {
+            color: #B262FB;
         }
 
-        .input {
-            width: 150px;
-            padding: 10px 0 10px 40px;
-            border-radius: 30px;
-            border: solid 1px #8E1ED9;
-            outline: none;
-            color: #bababa;
-        }
-
-        .container-input i {
+        .mobileMenu .closebtn {
             position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translate(0, -50%);
+            top: 0;
+            right: 25px;
+            font-size: 25px;
+            margin-left: 50px;
+            padding: 20px 8px 8px 32px;
         }
-
-        .input:focus {
-            opacity: 1;
-            width: 250px;
-        }
-        /* search button end*/
 
         body, html {
             height: 100%;
             line-height: 1.8;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             font-size: 16px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            box-sizing: inherit;
         }
     </style>
 </head>
 <body>
 
-<div class=" topnav">
-    <div class=" container" id="myNavbar" style="padding:0 20px;">
+<div class="header">
+    <div class="container" id="Navbar" style="padding:0 20px;">
         <div class="logo">
             <a href="/main" class="container_item" style="margin-right:15px">
-                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1094391626585096312/logo-no-background.png" class="logo image" alt="Ethereal" width="212" height="35"> </a>
+                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1094391626585096312/logo-no-background.png"
+                     class="logo-image" alt="Ethereal" width="212" height="35"> </a>
         </div>
-        <!-- Right-sided navbar links -->
-        <div class="  links" style="text-decoration: none">
+        <div class="links" style="text-decoration: none">
             <a href="/main" class=" container_item active" style="padding:10px 15px">Головна</a>
             <a href="/shop" class=" container_item" style="padding:10px 15px"> Каталог</a>
             <a href="/contacts" class=" container_item" style="padding:10px 15px"> Контакти</a>
         </div>
-        <div class = "icons" style="display: flex; flex-direction: row; align-items: center;">
-            <p style="color: #8E1ED9;">+380xxxxxxxxx</p>
+        <div class="icons" style="display: flex; flex-direction: row; align-items: center;">
+            <p style="color: #8E1ED9;">+380980001122</p>
             <div class="container-input" style="margin: 10px;">
                 <input type="text" placeholder="Пошук" name="text" class="input">
                 <i class="fa-solid fa-magnifying-glass" style="color: #9C51E0;"></i>
@@ -243,114 +375,148 @@
                      1.70508h-2.97657l-.67382-3.20508C401.88145 198.3377 401.47315 198.006 401 198.00586zm15 2h2v2h-2zm-4.70703.22656l.47461 1.77344h-2.07031L407.36133 200.75zm-6.21875 3.77344H423.75l-2.23242
                      9-16.5332.004c-.61823-2.86515-1.2814-6.02491-1.91016-9.00391zM409 220.00586c-1.64501 0-3 1.35499-3 3 0 1.64501 1.35499 3 3 3 1.64501 0 3-1.35499 3-3 0-1.64501-1.35499-3-3-3zm0 2c.56413 0
                      1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1zM419 220.00586c-1.64501 0-3 1.35499-3 3 0 1.64501 1.35499 3 3 3 1.64501 0 3-1.35499 3-3
-                     0-1.64501-1.35499-3-3-3zm0 2c.56413 0 1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1z" color="#000" fill="#9C51E0" transform="translate(-396 -196)"></path></svg></a>
+                     0-1.64501-1.35499-3-3-3zm0 2c.56413 0 1 .43587 1 1 0 .56413-.43587 1-1 1-.56413 0-1-.43587-1-1 0-.56413.43587-1 1-1z"
+                          color="#000" fill="#9C51E0" transform="translate(-396 -196)"></path>
+                </svg>
+            </a>
+            <a onclick="openMenu()" class="bars">
+                <i class="fa-solid fa-bars fa-lg" style="color: #8E1ED9; padding: 10px;"></i>
+            </a>
         </div>
-        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
     </div>
-
 </div>
 
+<div id="mobile" class="mobileMenu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()"> <i class="fa-solid fa-xmark"></i> </a>
+    <a href="/main" class="container_item" style="padding:10px 15px">Головна</a>
+    <a href="/shop" class="container_item" style="padding:10px 15px"> Каталог</a>
+    <a href="/contacts" class="container_item" style="padding:10px 15px"> Контакти</a>
+    <p style="color: #8E1ED9; padding: 0 10px; font-size: 20px;">+380980001122</p>
+    <div class="show container-input" style="margin: 10px;">
+        <input type="text" placeholder="Пошук" name="text" class="input">
+        <i class="fa-solid fa-magnifying-glass" style="color: #9C51E0;"></i>
+    </div>
+</div>
 
-<!-- Header with full-height image -->
-<div class="bgimg-1" style="color:#fff; background-image: url(https://cdn.discordapp.com/attachments/979077912080834740/1098349249890091139/VRChat_2023-04-19_23-45-37.026_1920x1080.png);background-position:top center;background-size:cover; filter: grayscale(50%);">
-    <div class=" " style="padding-top: 80px; padding-bottom: 80px;">
+<div class="bgimg-1"
+     style="color:#fff; background-image: url(https://cdn.discordapp.com/attachments/1059215485012549703/1108856379323727964/kimi.png); background-position:top center; background-size:cover; filter: brightness(125%)">
+    <div style="padding-top: 80px; padding-bottom: 80px;">
         <div class="header-container" style="text-align: center;">
-            <h1 style="font-size:64px">Start something that matters</h1>
-            <p style="font-size: 18px;">Stop wasting valuable time with projects that just isn't you.</p>
+            <h1 style="font-size:56px; font-weight: 500;">Робимо нереальне реальним</h1>
+            <p style="font-size: 24px; font-weight: 300;">Втілення будь-яких ідей у віртуальному світі разом з нами</p>
             <div style=" margin-top: 40px">
-                <button class="button" ><a href="/shop" style="color: #fff; text-decoration: none;" >Відкрити каталог</a></button></div>
+                <button class="button"><a href="/shop" style="color: #fff; text-decoration: none;">Відкрити каталог</a>
+                </button>
+            </div>
         </div>
     </div>
-
 </div>
 
 <!-- About Section -->
-<div style="padding:128px 128px" id="about">
-    <h2 class=""  style="text-align: center; font-size:40px;">Чому саме ми?</h2>
-    <p class=""  style="text-align: center; font-size:20px;">Переваги нашої компанії</p>
-    <div class="about-container " style="margin-top:64px">
-        <div class="about-column">
-            <i class="fa-solid fa-hand-holding-heart w3-margin-bottom" style="color: #8E1ED9; font-size:64px"></i>
-            <p class="" style="font-size:18px;">Доступність</p>
-            <p>Існуючий каталог з вже готовими моделями, які можна швидко придбати.</p>
-        </div>
-        <div class="about-column">
-            <i class="fa-regular fa-lightbulb w3-margin-bottom " style="color: #8E1ED9; font-size:64px; "></i>
-            <p class="" style="font-size:18px;">Креативність</p>
-            <p>Виконання проектів на замовлення протягом 3-7 днів в залежності від складності завдання.</p>
-        </div>
-        <div class="about-column">
-            <i class="fa-regular fa-folder-open w3-margin-bottom" style="color: #8E1ED9; font-size:64px"></i>
-            <p class="" style="font-size:18px;">Зручніть</p>
-            <p>Зручний формат файлу - Unity package, що дозволяє одразу використовуати модель у проектах.</p>
-        </div>
-        <div class="about-column">
-            <i class="fa-regular fa-comments w3-margin-bottom" style="color: #8E1ED9; font-size:64px"></i>
-            <p class="" style="font-size:18px;">Підтримка</p>
-            <p>Підтримка від розробника у разі виникнення питань чи проблем з моделлю після придбання.</p>
+<div class="about" id="about">
+    <div class="about-container">
+        <h2 style="font-size:40px; text-align: center;">Чому саме ми?</h2>
+        <p style="font-size:20px;">Переваги нашої компанії</p>
+        <div class="features-container">
+            <div class="about-column">
+                <i class="fa-solid fa-hand-holding-heart w3-margin-bottom" style="color: #8E1ED9; font-size:64px"></i>
+                <p style="font-size:18px;">Доступність</p>
+                <p>Існуючий каталог з вже готовими моделями, які можна швидко придбати.</p>
+            </div>
+            <div class="about-column">
+                <i class="fa-regular fa-lightbulb w3-margin-bottom " style="color: #8E1ED9; font-size:64px; "></i>
+                <p style="font-size:18px;">Креативність</p>
+                <p>Виконання проектів на замовлення протягом 3-7 днів в залежності від складності завдання.</p>
+            </div>
+            <div class="about-column">
+                <i class="fa-regular fa-folder-open w3-margin-bottom" style="color: #8E1ED9; font-size:64px"></i>
+                <p style="font-size:18px;">Зручніcть</p>
+                <p>Зручний формат файлу - Unity package, що дозволяє одразу використовуати модель у проектах.</p>
+            </div>
+            <div class="about-column">
+                <i class="fa-regular fa-comments w3-margin-bottom" style="color: #8E1ED9; font-size:64px"></i>
+                <p style="font-size:18px;">Підтримка</p>
+                <p>Підтримка від розробника у разі виникнення питань чи проблем з моделлю після придбання.</p>
+            </div>
         </div>
     </div>
 </div>
-
 
 <!-- product  Section -->
-<div class="product-container" style="padding:128px 16px; background-color:#FAF5FF;" id="work">
-    <h3 class="" style="text-align: center;">Популярні товари</h3>
-    <p class="" style="text-align: center;">3д моделі, які найбільше подобаються нашим клієнтам</p>
-
+<div class="product-container" style="padding:128px 16px; background-color:#FAF5FF;">
+    <h3 style="text-align: center; font-size: 30px;">Популярні товари</h3>
+    <p style="text-align: center; font-size: 24px;">3д моделі, які найбільше подобаються нашим клієнтам</p>
     <div class="product-images" style="margin-top:64px">
-        <div class="" style="padding:20px;" >
-            <img src="https://booth.pximg.net/2f131cbf-fd91-4652-9134-5aab11313537/i/3521047/c2bc1ff7-bbe8-47b6-8008-cd56a3f07ead_base_resized.jpg" style="width: 340px;  border-radius: 20px" alt="Ikomi">
+        <div style="padding:20px;">
+            <a href="/ikomi">
+                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1109074224141844502/kimi5.jpg"
+                     style="width: 340px;  border-radius: 20px" alt="Ikomi">
+            </a>
         </div>
-        <div class="" style="padding:20px;">
-            <img src="https://booth.pximg.net/2f131cbf-fd91-4652-9134-5aab11313537/i/3644446/10eb1124-24dc-4712-8423-76ecef08f426_base_resized.jpg" style="width: 340px; border-radius: 20px" alt="Furomi">
+        <div style="padding:20px;">
+            <a href="/furomi">
+                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1109074694839210014/kimi4.jpg"
+                     style="width: 340px; border-radius: 20px" alt="Furomi">
+            </a>
         </div>
-        <div class="" style="padding:20px;">
-            <img src="https://booth.pximg.net/b72d62fb-6f78-4042-8674-b0b9d718f73d/i/3204884/acb920d7-3efe-49fc-9820-f6b68178057c_base_resized.jpg" style="width: 340px; border-radius: 20px" alt="Catgirl">
+        <div style="padding:20px;">
+            <a href="/catgirl">
+                <img src="https://booth.pximg.net/b72d62fb-6f78-4042-8674-b0b9d718f73d/i/3204884/acb920d7-3efe-49fc-9820-f6b68178057c_base_resized.jpg"
+                     style="width: 340px; border-radius: 20px" alt="Catgirl">
+            </a>
         </div>
-        <div class="" style="padding:20px;">
-            <img src="https://booth.pximg.net/fda1763e-ec8b-4454-9f28-02dbb6a45451/i/4253104/53cf1f47-c38c-460a-a6bf-5a6661ab5199_base_resized.jpg" style="width: 340px; height: 340px; object-fit: cover; border-radius: 20px" alt="Bow">
+        <div style="padding:20px;">
+            <a href="/kitty">
+                <img src="https://cdn.discordapp.com/attachments/1059215485012549703/1108864336497221703/kimi1.png"
+                     style="width: 340px; object-fit: cover; border-radius: 20px" alt="Bow">
+            </a>
         </div>
     </div>
 </div>
 
-
 <!-- Contact Section -->
-<div style="padding:128px 16px" id="contact">
-    <h3 class="w3-center">Підписка на розсилку</h3>
-    <p class="w3-center w3-large">Введіть нижче свій e-mail для отримання повідомлень про нові товари та знижки</p>
-    <div class="w3-center bla" style="margin-top:48px">
-        <form>
-            <p><input class="input-zone" type="text" placeholder="Email" >
-                <button class="button" style="font-size: 16px;" type="submit">
-                    <i class="fa fa-paper-plane "></i> SEND MESSAGE
-                </button>
-            </p>
-        </form>
+<div class="contact" id="contact">
+    <div class="contact-container container">
+        <h3 style="text-align: center; font-size: 30px;">Підписка на розсилку</h3>
+        <p style="text-align: center; font-size: 18px;">Введіть нижче свій e-mail для отримання повідомлень про нові товари та знижки</p>
+        <div class="email-container" style="margin-top:48px">
+            <input class="input-zone" type="text" placeholder="Email">
+            <button class="button" style="font-size: 16px; margin: 10px 21px; font-weight: 600;" type="submit">
+                Надіслати
+            </button>
+        </div>
     </div>
 </div>
 
 
 <!-- Footer -->
-<footer class=" footer">
+<footer class="footer">
     <div style="width: 100%; max-width: 1100px; ">
         <div class="footer_container">
-
-            <div class="footer_container_left" style="">
-                <p>почта </p>
+            <div class="footer_container_left" style="padding: 0 10px; color: #8E1ED9;">
+                <p>ethereal@gmail.com</p>
             </div>
             <div class="footer_container_right" style="font-size:24px;">
-                <i class="fa-brands fa-telegram w3-hover-opacity" style="color: #9C51E0; padding:0 5px;"></i>
-                <i class="fa fa-instagram w3-hover-opacity" style="color: #9C51E0; padding:0 5px;"></i>
-                <i class="fa-brands fa-discord w3-hover-opacity" style="color: #9C51E0; padding:0 5px;"></i>
+                <a href="https://t.me/Antoniada"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.instagram.com/kimiko__aoki/"><i class="fa fa-instagram"></i></a>
+                <a href="https://discord.gg/XfvANdWq"><i class="fa-brands fa-discord"></i></a>
             </div>
-
         </div>
     </div>
-    <div class="" style="width: 100%; max-width: 1100px; padding: 10px 20px; font-size: 14px; color: #bababa;">
-        <p style="">© 2023 Ethereal | Start something that matters. All rights reserved.</p> </div>
+    <div style="width: 100%; max-width: 1100px; padding: 10px 20px; font-size: 14px; color: #bababa;">
+        <p>© 2023 Ethereal | Робимо нереальне реальним. Всі права захищені.</p>
+    </div>
 </footer>
 
+<script>
+    function openMenu() {
+        document.getElementById("mobile").style.display = "block";
+    }
+
+    function closeMenu() {
+        document.getElementById("mobile").style.display = "none";
+    }
+</script>
 
 </body>
 </html>
